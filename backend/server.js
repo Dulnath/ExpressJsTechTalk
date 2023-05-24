@@ -5,30 +5,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require("cors");
 const port = 4200;
+const connectionString = 'mongodb+srv://Kumuthu:expressJS123@cluster0.ehhq0.mongodb.net/ExpressJsTechTalk?retryWrites=true&w=majority';
 
-const firebaseConfig = {
-
-    apiKey: "AIzaSyB_u8kD8kPesWTs8EwwJgiDBaLkHRmBsZQ",
-  
-    authDomain: "expressjstechtalk.firebaseapp.com",
-  
-    projectId: "expressjstechtalk",
-  
-    storageBucket: "expressjstechtalk.appspot.com",
-  
-    messagingSenderId: "975907917888",
-  
-    appId: "1:975907917888:web:03e4a282e8f7ef9525cfa5",
-  
-    measurementId: "G-D86JH06RR2"
-  
-};
-  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-mongoose.connect('mongodb+srv://Kumuthu:expressJS123@cluster0.ehhq0.mongodb.net/ExpressJsTechTalk?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
   })
